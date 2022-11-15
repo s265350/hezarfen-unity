@@ -68,13 +68,9 @@ public class PreferencesManager : MonoBehaviour
 		}
 
 		if (PlayerPrefs.HasKey("CoinAmmount"))
-		{
 			LoadData();
-		}
 		else
-		{
 			CreateData();
-		}
 	}
 
 	public void CreateData()

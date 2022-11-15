@@ -57,17 +57,17 @@ public class Mission
 		return storedValue;
 	}
 
-	public void ModifyStoredValue(bool addValue, int ammount)
+	public void ModifyStoredValue(bool addValue, int amount)
 	{
 		if (addValue)
-			storedValue += ammount;
+			storedValue += amount;
 		else
-			storedValue = startingValue + ammount;
+			storedValue = startingValue + amount;
 	}
 
 	public void ResetThis()
 	{
-		storedValue = 0;
+		storedValue = startingValue;
 	}
 
 	public bool Completed()

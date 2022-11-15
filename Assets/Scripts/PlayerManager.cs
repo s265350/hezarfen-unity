@@ -173,7 +173,7 @@ public class PlayerManager : MonoBehaviour
 			}
 			else if (other.transform.name == "BirdBrown" || other.transform.name == "BirdWhite" || other.transform.name == "StorkTall" || other.transform.name == "BirdBody")
 			{
-				UpdateMission(other.transform.name);
+				UpdateMission(other.tag, other.transform.name);
 				if (!crashing && canCrash && !shieldActive)
 				{
 					crashing = true;
@@ -195,7 +195,7 @@ public class PlayerManager : MonoBehaviour
 		}
 		else if (other.tag == "PowerUps")
 		{
-			UpdateMission(other.transform.name);
+			UpdateMission(other.tag, other.transform.name);
 
 			switch (other.transform.name)
 			{
@@ -222,9 +222,21 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
-	void UpdateMission(string name)
+	void UpdateMission(string type, string name)
 	{
-		MissionManager.Instance.ObstacleEvent(name);
+		switch(type)
+		{
+			case "Obstacles":
+			{
+				MissionManager.Instance.ObstacleEvent(name);
+				break;
+			}
+			case "PowerUps":
+			{
+				MissionManager.Instance.PowerUpEvent(name);
+				break;
+			}
+		}
 	}
 
 	void PlayHideParticleEffect(Transform particleParent)

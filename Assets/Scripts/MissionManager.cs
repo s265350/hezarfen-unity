@@ -83,13 +83,18 @@ public class MissionManager : MonoBehaviour
 				newData[activeMissionIDs[i]] = '1';
 				data = new string(newData);
 
-				if (i == 0)
+				switch(i)
+				{
+					case 0:
 					PreferencesManager.Instance.SetMission1Data(0);
-				else if (i == 1)
+					break;
+					case 1:
 					PreferencesManager.Instance.SetMission2Data(0);
-				else
+					break;
+					default:
 					PreferencesManager.Instance.SetMission3Data(0);
-
+					break;
+				}
 				PreferencesManager.Instance.SetMissionData(data);
 
 				GetNewMission(i);
@@ -100,12 +105,18 @@ public class MissionManager : MonoBehaviour
 
 				if (mission.goalType == Mission.GoalType.InMultipleRun || mission.goalType == Mission.GoalType.InShop)
 				{
-					if (i == 0)
+					switch(i)
+					{
+						case 0:
 						PreferencesManager.Instance.SetMission1Data(mission.StoredValue());
-					else if (i == 1)
+						break;
+						case 1:
 						PreferencesManager.Instance.SetMission2Data(mission.StoredValue());
-					else
+						break;
+						default:
 						PreferencesManager.Instance.SetMission3Data(mission.StoredValue());
+						break;
+					}
 				}
 			}
 		}
@@ -242,20 +253,25 @@ public class MissionManager : MonoBehaviour
 
 	void CheckDistanceIn(Mission mission, int number, int i)
 	{
-		if (mission.goalType == Mission.GoalType.InOneRun)
+		switch(mission.goalType)
 		{
-			GameMenuManager.Instance.UpdateMissionStatus(i, number, mission.valueA);
+			case Mission.GoalType.InOneRun:
+			{
+				GameMenuManager.Instance.UpdateMissionStatus(i, number, mission.valueA);
 
-			if (mission.valueA <= number)
-				MissionCompleted(mission, i);
-		}
-		else if (mission.goalType == Mission.GoalType.InMultipleRun)
-		{
-			mission.ModifyStoredValue(false, number);
-			GameMenuManager.Instance.UpdateMissionStatus(i, mission.StoredValue(), mission.valueA);
+				if (mission.valueA <= number)
+					MissionCompleted(mission, i);
+				break;
+			}
+			case Mission.GoalType.InMultipleRun:
+			{
+				mission.ModifyStoredValue(false, number);
+				GameMenuManager.Instance.UpdateMissionStatus(i, mission.StoredValue(), mission.valueA);
 
-			if (mission.valueA <= mission.StoredValue())
-				MissionCompleted(mission, i);
+				if (mission.valueA <= mission.StoredValue())
+					MissionCompleted(mission, i);
+				break;
+			}
 		}
 	}
 
