@@ -10,13 +10,13 @@ public class PreferencesManager : MonoBehaviour
 
 	public bool clearDataForTest = false;
 
-	int coinAmmount = 1500;
+	int coinAmmount = 3000;
 	int bestDistance = 0;
 
-	int extraSpeed = 0;
-	int shield = 0;
-	int abracadabra = 0;
-	int revive = 0;
+	int extraSpeed = 1;
+	int shield = 1;
+	int abracadabra = 1;
+	int revive = 1;
 
 	int mission1 = 0;
 	int mission2 = 1;
@@ -48,13 +48,9 @@ public class PreferencesManager : MonoBehaviour
 		instances++;
 
 		if (instances > 1)
-		{
 			Debug.LogWarning("Warning: There are more than one Save Manager at the level");
-		}
 		else
-		{
 			_instance = this;
-		}
 
 		CreateAndLoadData();
 	}
@@ -200,9 +196,7 @@ public class PreferencesManager : MonoBehaviour
 	public bool GetFirtsOpen()
 	{
 		if (PlayerPrefs.HasKey("first_open"))
-		{
 			return true;
-		}
 		return false;
 	}
 

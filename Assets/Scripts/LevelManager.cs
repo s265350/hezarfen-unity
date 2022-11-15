@@ -13,9 +13,7 @@ public class LevelManager : MonoBehaviour
 		get
 		{
 			if (_instance == null)
-			{
 				_instance = FindObjectOfType(typeof(LevelManager)) as LevelManager;
-			}
 
 			return _instance;
 		}
@@ -26,13 +24,9 @@ public class LevelManager : MonoBehaviour
 		instances++;
 
 		if (instances > 1)
-		{
 			Debug.LogWarning("Warning: There are more than one Level Manager at the level");
-		}
 		else
-		{
 			_instance = this;
-		}
 
 		GameMenuManager.Instance.UpdateBestDistance();
 		GameMenuManager.Instance.SetLevelResolution();

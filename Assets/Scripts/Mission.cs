@@ -46,10 +46,15 @@ public class Mission
 
 	bool completed = false;
 
-	public void SetStoredValue(int v)
+	public void SetValue(int v)
 	{
-		storedValue = v;
 		startingValue = v;
+		storedValue = v;
+	}
+
+	public int StartingValue()
+	{
+		return startingValue;
 	}
 
 	public int StoredValue()
@@ -67,7 +72,8 @@ public class Mission
 
 	public void ResetThis()
 	{
-		storedValue = startingValue;
+		startingValue = valueB;
+		storedValue = valueB;
 	}
 
 	public bool Completed()

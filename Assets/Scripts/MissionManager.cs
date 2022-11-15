@@ -62,13 +62,13 @@ public class MissionManager : MonoBehaviour
 		}
 
 		if (!activeMissionComplete[0] && missions[activeMissionIDs[0]].goalType != Mission.GoalType.InOneRun)
-			missions[activeMissionIDs[0]].SetStoredValue(PreferencesManager.Instance.GetMission1Data());
+			missions[activeMissionIDs[0]].SetValue(PreferencesManager.Instance.GetMission1Data());
 
 		if (!activeMissionComplete[1] && missions[activeMissionIDs[1]].goalType != Mission.GoalType.InOneRun)
-			missions[activeMissionIDs[1]].SetStoredValue(PreferencesManager.Instance.GetMission2Data());
+			missions[activeMissionIDs[1]].SetValue(PreferencesManager.Instance.GetMission2Data());
 
 		if (!activeMissionComplete[2] && missions[activeMissionIDs[2]].goalType != Mission.GoalType.InOneRun)
-			missions[activeMissionIDs[2]].SetStoredValue(PreferencesManager.Instance.GetMission3Data());
+			missions[activeMissionIDs[2]].SetValue(PreferencesManager.Instance.GetMission3Data());
 
 		UpdateGUITexts();
 	}
