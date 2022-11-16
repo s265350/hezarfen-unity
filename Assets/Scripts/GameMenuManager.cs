@@ -324,7 +324,7 @@ public class GameMenuManager : MonoBehaviour
 		}
 	}
 
-	//Activate the extra speed powerup at startup
+	// Activate the extra speed powerup at startup
 	void ActivateSpeedPowerup()
 	{
 		if (showPause)
@@ -338,7 +338,7 @@ public class GameMenuManager : MonoBehaviour
 		StopCoroutine("MovePowerUpSelection");
 	}
 
-	//Activate the shield powerup at startup
+	// Activate the shield powerup at startup
 	void ActivateShieldPowerup()
 	{
 		if (showPause)

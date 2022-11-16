@@ -510,6 +510,7 @@ public class MissionManager : MonoBehaviour
 		else
 		{
 			text3 = "Completed";
+			Debug.Log("diocane");
 			GameMenuManager.Instance.UpdateMissionStatus(0, 0, 0);
 		}
 
