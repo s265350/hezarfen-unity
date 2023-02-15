@@ -55,5 +55,7 @@ sysinfo.txt
 crashlytics-build.properties
 
 .DS_Store
+.keystore
 
 *.symbols.zip
+*.keystore
